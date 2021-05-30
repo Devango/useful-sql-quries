@@ -1,0 +1,11 @@
+use [master]
+
+alter database [Test]
+set single_user with ROLLBACK immediate;
+
+RESTORE DATABASE [test] FROM  DISK = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\Backup\test.bak' WITH  FILE = 1,  NOUNLOAD,  REPLACE,  STATS = 5
+
+alter database [Test]
+set Multi_user with ROLLBACK immediate;
+
+
